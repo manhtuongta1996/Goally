@@ -1,13 +1,11 @@
 import './globals.css'
-import { Providers } from "./providers";
-import {Poppins} from "next/font/google"
-
+import {Poppins} from "@next/font/google"
+import NavBar from '@/components/NavBar'
 const poppins = Poppins({
-  weight: '400',
+  weight: ['400', '700'],
   subsets: ['latin'],
   variable: "--font-poppins"
 })
-console.log(poppins)
 export default function RootLayout({
   children,
 }: {
@@ -15,10 +13,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`mx-4 md:mx-48 xl:mx-96 ${poppins.variable}`}>
-        <Providers>
+      <body className={`mx-4 md:mx-48 xl:mx-60 ${poppins.className}`}>
+          <NavBar />
           {children}
-        </Providers>
       </body>
     </html>
   )
