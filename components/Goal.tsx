@@ -6,13 +6,13 @@ function Goal(GoalProps: GoalType) {
         <img src="./default-goal-img.png" alt="" height={200} width={200} />
       </div>
       <div className="card-title">
-        <p>{GoalProps.title}</p>
+        <h1 className="font-bold text-xl italic">{GoalProps.title}</h1>
       </div>
-      <div className="card-info">
-
+      <div className="card-info mt-2">
+        <p className="card-desc">{GoalProps.description}</p>
       </div>
-      <div className="card-action">
-
+      <div className="card-action mt-4">
+        <button className="card-btn">View</button>
       </div>
     </div>
   )

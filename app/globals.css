@@ -29,9 +29,38 @@ body {
   overflow: hidden;
   box-shadow: 10px 12px #02060a;
   min-height: 400px;
-  padding: 2rem;
+  padding: 1rem;
   transition: all .4s cubic-bezier(.19, 1, .22, 1);
 }
 .goal-card:hover{
   box-shadow: 8px 9px #02060a;
+}
+.card-action{
+  margin-top: auto;
+}
+.card-desc{
+  overflow: hidden;
+   display: -webkit-box;
+   -webkit-line-clamp: 4; /* number of lines to show */
+           line-clamp: 4; 
+   -webkit-box-orient: vertical;
+   line-height: 1.5rem;
+}
+button.card-btn{
+  background-color: #16db93;
+  padding: 0.75rem;
+  border-radius: 1.25rem;
+  color:#272635;
+  margin-top: 1rem;
+  font-weight: 700;
+}
+
+@layer components {
+  .sidebar-icon{
+    @apply relative flex items-center justify-center 
+    h-12 w-12 mt-2 mb-2 mx-auto shadow-lg
+    text-secondary 
+    hover:bg-primary hover:text-grayApp rounded-3xl hover:rounded-xl 
+    transition-all duration-300 ease-linear cursor-pointer;
+  }
 }
