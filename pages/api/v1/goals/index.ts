@@ -3,11 +3,14 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]";
 import prisma from "../../../../prisma/client"
 export default async function handler(req:NextApiRequest, res: NextApiResponse){
-  const {method} = req;
-  if (method === "GET"){
-   
-      res.status(200).json({req: "ok"})
-    
+  if (req.method === "GET"){
+    try {
+      const data = await prisma.goal.findMany()
+      res.status(200).json(data)
+    } catch (err){
+      res.status(401).json({message:"Error while fetching goals"})
+    }
+    res.status(200).json({req: "ok"})
   } else if (req.method === "POST") {
     const session = await getServerSession(req,res,authOptions)
     if (!session){

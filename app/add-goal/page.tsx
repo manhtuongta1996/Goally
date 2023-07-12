@@ -35,13 +35,14 @@ function AddGoal() {
     <div className="bg-grayApp rounded-3xl shadow-border p-8">
       <form onSubmit={submitGoal} className='flex flex-row'>
         <div className="w-2/3 mr-4">
+          <h1 className='font-bold text-center text-4xl uppercase'>Let's Goal !</h1>
           <div className='mt-4'>
             <label htmlFor="" className='font-bold italic'>Tell us your goal:</label>
             <textarea 
             name="title" 
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder='What is your goal?'
+            placeholder='No limit to your dream goal'
             className="rounded-2xl resize-none border-black border-solid border-[2px] p-2 w-full"></textarea>
           </div>
           <div className='mt-4'>
@@ -50,7 +51,7 @@ function AddGoal() {
             name="description" 
             value={description}
             onChange={(e) => setDesc(e.target.value)}
-            placeholder='More information'
+            placeholder='Tell us more about it'
             className="rounded-2xl resize-none border-black border-solid border-[2px] p-2 w-full"></textarea>
           </div>
           <div className='mt-4'>

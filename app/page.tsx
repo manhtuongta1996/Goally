@@ -1,9 +1,26 @@
 "use client"
 import Goal from "@/components/Goal"
 import { GoalType } from "@/types/Goal"
-import { ReactNode } from "react"
-
+import React, { ReactNode } from "react"
+import {useQuery} from "@tanstack/react-query"
+import axios from "axios"
+import LoadingScreen from "@/components/LoadingScreen"
+const getAllGoals = async () => {
+  const response = await axios.get("/api/v1/goals")
+  return response.data
+}
 export default function Home() {
+  
+  const {data, error, isLoading} = useQuery({
+      queryFn: getAllGoals,
+      queryKey:["goals"]
+    }
+  )
+  if (error) return error
+  if (isLoading) return <LoadingScreen />
+  if (data){
+    console.log(data)
+  }
   const mockData: GoalType[] = [
     {
       id: "something",
@@ -38,8 +55,13 @@ export default function Home() {
   ]
   return (
     <>
-      <main className="mt-4">
+      <main>
         <section className="grid lg:grid-cols-3 md:grid-cols-2 mx:grid-cols-1 gap-4 gap-y-8 mt-4">
+          {
+            data.map((goal:GoalType, goalIndex:number) => {
+              return <Goal key={goalIndex} {...goal}/>
+            })
+          }
           {
             mockData.map<ReactNode>((goal: GoalType, goalIndex: number) => {
               return <Goal key={goalIndex} {...goal}/>
