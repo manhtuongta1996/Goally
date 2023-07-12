@@ -1,7 +1,7 @@
 import { GoalType } from "@/types/Goal"
 function Goal(GoalProps: GoalType) {
   return (
-    <div className="goal-card flex flex-col mx-4">
+    <div className="goal-card flex flex-col mx-4 shadow-border">
       <div>
         <img src="./default-goal-img.png" alt="" height={200} width={200} />
       </div>

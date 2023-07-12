@@ -23,15 +23,18 @@ body {
 .goal-card{
   background-color: #e8e9f3;
   cursor: pointer;
-  border: 2px solid #000;
-  border-radius: 2rem;
   line-height: .6;
   overflow: hidden;
-  box-shadow: 10px 12px #02060a;
   min-height: 400px;
   padding: 1rem;
+}
+.shadow-border {
+  border: 2px solid #000;
+  border-radius: 2rem;
+  box-shadow: 10px 12px #02060a;
   transition: all .4s cubic-bezier(.19, 1, .22, 1);
 }
+
 .goal-card:hover{
   box-shadow: 8px 9px #02060a;
 }
@@ -54,7 +57,12 @@ button.card-btn{
   margin-top: 1rem;
   font-weight: 700;
 }
-
+.addGoalImg {
+  background-image: url("../public/default-goal-img.png");
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center; 
+}
 @layer components {
   .sidebar-icon{
     @apply relative flex items-center justify-center 
